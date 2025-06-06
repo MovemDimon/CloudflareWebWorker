@@ -1,4 +1,4 @@
-name = "cloudwork"
+name = "cloudflarewebworker"
 type = "module"
 account_id = "a16064d411694e2339281bdf4093b2d0"
 workers_dev = true
