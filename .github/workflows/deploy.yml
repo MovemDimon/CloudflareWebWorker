@@ -17,16 +17,16 @@ jobs:
 
       - name: Set secrets in Cloudflare
         run: |
-          echo "${{ secrets.TELEGRAM_BOT_TOKEN }}" | wrangler secret put TELEGRAM_BOT_TOKEN --yes
-          echo "${{ secrets.WORKER_URL }}" | wrangler secret put WORKER_URL --yes
-          echo "${{ secrets.WS_API_KEY }}" | wrangler secret put WS_API_KEY --yes
-          echo "${{ secrets.ETH_MERCHANT_WALLET }}" | wrangler secret put ETH_MERCHANT_WALLET --yes
-          echo "${{ secrets.TON_MERCHANT_WALLET }}" | wrangler secret put TON_MERCHANT_WALLET --yes
-          echo "${{ secrets.PAYMENT_SERVERS }}" | wrangler secret put PAYMENT_SERVERS --yes
+          echo "${{ secrets.TELEGRAM_BOT_TOKEN }}" | wrangler secret put TELEGRAM_BOT_TOKEN --name cloudwork
+          echo "${{ secrets.WORKER_URL }}" | wrangler secret put WORKER_URL --name cloudwork
+          echo "${{ secrets.WS_API_KEY }}" | wrangler secret put WS_API_KEY --name cloudwork
+          echo "${{ secrets.ETH_MERCHANT_WALLET }}" | wrangler secret put ETH_MERCHANT_WALLET --name cloudwork
+          echo "${{ secrets.TON_MERCHANT_WALLET }}" | wrangler secret put TON_MERCHANT_WALLET --name cloudwork
+          echo "${{ secrets.PAYMENT_SERVERS }}" | wrangler secret put PAYMENT_SERVERS --name cloudwork
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Deploy to Cloudflare
-        run: wrangler deploy
+        run: wrangler deploy --name cloudflarewebworker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
