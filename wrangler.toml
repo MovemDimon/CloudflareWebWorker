@@ -3,4 +3,4 @@ type = "javascript"
 type = "module"
 account_id = "a16064d411694e2339281bdf4093b2d0"
 workers_dev = true
-compatibility_date = "2025-06-04"
+compatibility_date = "2025-06-05"
