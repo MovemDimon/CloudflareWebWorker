@@ -5,7 +5,7 @@ workers_dev = true
 compatibility_date = "2025-06-04"
 
 [build]
-upload.format = "modules"
+format = "modules"
 
 [[durable_objects.bindings]]
 name = "BOTNAMESPACE"
@@ -18,4 +18,4 @@ class_name = "WSNamespace"
 # اضافه کردن migration برای ساخت DO ها
 [[migrations]]
 tag = "v1"
-new_classes = ["BotNamespace", "WSNamespace"]
+new_sqlite_classes = ["BotNamespace", "WSNamespace"]
