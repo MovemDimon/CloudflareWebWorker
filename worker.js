@@ -50,6 +50,7 @@ const BotNamespace = class {
           ⚠️ If you send from exchanges, payment may fail or be delayed.\n\n
           📌 For full info and expected token value range, check the *Detail section* in your Balance page.\n
           👇 Please select your currency to continue:';
+          parseMode = 'Markdown';
           keyboard = [[{ text: 'USDT', callback_data: 'USDT' }]];
           user.stage = 'CURRENCY';
           break;
