@@ -37,23 +37,27 @@ const BotNamespace = class {
 
       switch (user.stage) {
         case 'START':
-          reply = '💎 *Welcome to Daimonium Purchase Process!*\n
-          You're about to buy tokens using USDT before listing.\n
-          Here’s how it works:\n
-          1️⃣ Choose *currency* (only USDT supported)\n
-          2️⃣ Select *network* (Ethereum, BSC, Polygon, etc)\n
-          3️⃣ Enter your *own wallet address* (you will send USDT from this address)\n
-          4️⃣ The bot shows a *merchant address* — send the exact amount to it manually from your wallet\n
-          5️⃣ After payment, reply with the *transaction hash (tx_hash)*\n\n
-          🚫 Do *NOT* send screenshots or links — only the 64-character hash is accepted.\n
-          ✅ Example:\n\`0xabc1234...7890def\`\n
-          ⚠️ If you send from exchanges, payment may fail or be delayed.\n\n
-          📌 For full info and expected token value range, check the *Detail section* in your Balance page.\n
-          👇 Please select your currency to continue:';
-          parseMode = 'Markdown';
-          keyboard = [[{ text: 'USDT', callback_data: 'USDT' }]];
-          user.stage = 'CURRENCY';
-          break;
+          reply = `💎 *Welcome to Daimonium Purchase Process!*
+You're about to buy tokens using USDT before listing.
+Here’s how it works:
+1️⃣ Choose *currency* (only USDT supported)
+2️⃣ Select *network* (Ethereum, BSC, Polygon, etc)
+3️⃣ Enter your *own wallet address* (you will send USDT from this address)
+4️⃣ The bot shows a *merchant address* — send the exact amount to it manually from your wallet
+5️⃣ After payment, reply with the *transaction hash (tx_hash)*
+
+🚫 Do *NOT* send screenshots or links — only the 64-character hash is accepted.
+✅ Example:
+\`0xabc1234...7890def\`
+⚠️ If you send from exchanges, payment may fail or be delayed.
+
+📌 For full info and expected token value range, check the *Detail section* in your Balance page.
+👇 Please select your currency to continue:`;
+  parseMode = 'Markdown';  // or 'MarkdownV2' if you escape correctly
+  keyboard = [[{ text: 'USDT', callback_data: 'USDT' }]];
+  user.stage = 'CURRENCY';
+  break;
+
 
         case 'CURRENCY':
           const currency = body.callback_query?.data;
