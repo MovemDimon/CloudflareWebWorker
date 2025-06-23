@@ -3,5 +3,14 @@ main = "worker.js"
 account_id = "a16064d411694e2339281bdf4093b2d0"
 workers_dev = true
 compatibility_date = "2025-06-04"
+
 [build]
 upload.format = "modules"
+
+[[durable_objects.bindings]]
+name = "BOTNAMESPACE"
+class_name = "BotNamespace"
+
+[[durable_objects.bindings]]
+name = "WSNAMESPACE"
+class_name = "WSNamespace"
