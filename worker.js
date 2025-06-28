@@ -360,7 +360,3 @@ export default {
 // انتهای worker.js
 
 export { BotNamespace, WSNamespace };
-export default {
-  async fetch(request, env) { … },
-  async scheduled(event, env, ctx) { … }
-};
