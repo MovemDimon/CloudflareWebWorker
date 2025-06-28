@@ -1,12 +1,14 @@
 {
+  "name": "my-worker-project",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "test": "jest"
-  }
-{
+  },
   "devDependencies": {
-    "miniflare": "^2.0.0",
-    "jest": "^29.0.0",
     "@cloudflare/workers-types": "^4.2025.6",
-    "@miniflare/jest-environment": "^2.0.0"
+    "@miniflare/jest-environment": "^2.0.0",
+    "jest": "^29.0.0",
+    "miniflare": "^2.0.0"
   }
 }
