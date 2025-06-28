@@ -11,22 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Clean install
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
-
-
-      - name: Use Node.js
+      - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run Worker tests
+      - name: Run tests
+        env:
+          NODE_OPTIONS: --experimental-vm-modules
         run: npm test
