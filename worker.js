@@ -334,6 +334,9 @@ const WSNamespace = class {
   }
 };
 
+// انتهای worker.js
+export { BotNamespace, WSNamespace };
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -356,7 +359,3 @@ export default {
   },
   async scheduled(event, env, ctx) {}
 };
-
-// انتهای worker.js
-
-export { BotNamespace, WSNamespace };
