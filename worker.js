@@ -1,6 +1,13 @@
 // worker.js (Cloudflare Durable Worker)
 
-import { decode } from 'uint8-base64';
+function base64DecodeUnicode(str) {
+  const binary = atob(str);
+  let result = '';
+  for (let i = 0; i < binary.length; i++) {
+    result += String.fromCharCode(binary.charCodeAt(i));
+  }
+  return decodeURIComponent(escape(result));
+}
 
 const BotNamespace = class {
   constructor(state, env) {
