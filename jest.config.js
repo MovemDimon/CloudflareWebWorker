@@ -1,12 +1,16 @@
 /** @type {import('jest').Config} */
 module.exports = {
-  testEnvironment: "@miniflare/jest-environment",
+  // نام پکیج محیط تست
+  testEnvironment: "jest-environment-miniflare",
   testEnvironmentOptions: {
+    // برای ماژول‌های ESM
     modules: true,
+    // دوام‌‌آبجکت‌ها
     durableObjects: {
       BOTNAMESPACE: "BotNamespace",
       WSNAMESPACE: "WSNamespace"
     },
+    // شبیه‌سازی متغیرهای env
     bindings: {
       PAYMENT_SERVERS: "https://example.com/api/transaction",
       WS_API_KEY: "test-key",
