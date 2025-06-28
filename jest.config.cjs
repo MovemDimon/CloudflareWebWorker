@@ -1,20 +1,18 @@
-// jest.config.cjs
 module.exports = {
-  testEnvironment: "jest-environment-miniflare",
+  testEnvironment: 'miniflare',
   testEnvironmentOptions: {
-    modules: true,
     durableObjects: {
-      BOTNAMESPACE: "BotNamespace",
-      WSNAMESPACE: "WSNamespace"
+      BOTNAMESPACE: 'BotNamespace',
+      WSNAMESPACE: 'WSNamespace'
     },
     bindings: {
-      PAYMENT_SERVERS: "https://example.com/api/transaction",
-      WS_API_KEY: "test-key",
-      TELEGRAM_BOT_TOKEN: "test-token",
-      TON_MERCHANT_WALLET: "EQtest",
-      ETH_MERCHANT_WALLET: "0x" + "a".repeat(40),
-      WORKER_URL: "https://worker.test"
-    }
-  },
-  transform: {}
+      TELEGRAM_BOT_TOKEN: 'test-token',
+      ETH_MERCHANT_WALLET: '0xtestwallet',
+      TON_MERCHANT_WALLET: 'EQtestwallet',
+      PAYMENT_SERVERS: 'https://example.com/api/transaction',
+      WORKER_URL: 'https://your-worker-url.com',
+      WS_API_KEY: 'test-api-key'
+    },
+    modules: ['./worker.js']
+  }
 };
