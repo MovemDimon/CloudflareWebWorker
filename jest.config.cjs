@@ -1,16 +1,12 @@
-/** @type {import('jest').Config} */
+// jest.config.cjs
 module.exports = {
-  // نام پکیج محیط تست
   testEnvironment: "jest-environment-miniflare",
   testEnvironmentOptions: {
-    // برای ماژول‌های ESM
     modules: true,
-    // دوام‌‌آبجکت‌ها
     durableObjects: {
       BOTNAMESPACE: "BotNamespace",
       WSNAMESPACE: "WSNamespace"
     },
-    // شبیه‌سازی متغیرهای env
     bindings: {
       PAYMENT_SERVERS: "https://example.com/api/transaction",
       WS_API_KEY: "test-key",
