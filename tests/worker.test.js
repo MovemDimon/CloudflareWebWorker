@@ -5,7 +5,7 @@ describe("BotNamespace Durable Object", () => {
 
   beforeAll(() => {
     mf = new Miniflare({
-      scriptPath: "./worker.js",   // ← اینجا
+      scriptPath: "../worker.js",   // مسیر به worker.js اصلاح شد
       modules: true,
       durableObjects: {
         BOTNAMESPACE: "BotNamespace",
