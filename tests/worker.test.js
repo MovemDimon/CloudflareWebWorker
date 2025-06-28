@@ -1,25 +1,17 @@
-/**
- * @jest-environment miniflare
- */
-
 import { Miniflare } from "miniflare";
-import workerModule from "../worker.js"; // مسیر به فایل worker.js شما
 
 describe("BotNamespace Durable Object", () => {
   let mf;
 
   beforeAll(() => {
     mf = new Miniflare({
-      script: workerModule,
+      scriptPath: "./worker.js",   // ← اینجا
       modules: true,
       durableObjects: {
         BOTNAMESPACE: "BotNamespace",
         WSNAMESPACE: "WSNamespace"
       },
       bindings: {
-        // شبیه‌سازی مقادیر env
-        BOTNAMESPACE: { name: "main" },
-        WSNAMESPACE: { name: "main" },
         PAYMENT_SERVERS: "https://example.com/api/transaction",
         WS_API_KEY: "test-key",
         TELEGRAM_BOT_TOKEN: "test-token",
@@ -38,6 +30,4 @@ describe("BotNamespace Durable Object", () => {
     });
     expect(res.status).toBe(400);
   });
-
-  // می‌توانید موارد بیشتری اضافه کنید
 });
