@@ -334,13 +334,6 @@ const WSNamespace = class {
   }
 };
 
-// --- ثبت کلاس‌ها برای Miniflare ---
-globalThis.BotNamespace = BotNamespace;
-globalThis.WSNamespace = WSNamespace;
-
-// --- اکسپورت نهایی ---
-export { BotNamespace, WSNamespace };
-
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -361,6 +354,5 @@ export default {
     }
     return new Response('Not Found', { status: 404 });
   },
-
   async scheduled(event, env, ctx) {}
 };
