@@ -30,18 +30,6 @@ const BotNamespace = class {
       let keyboard = [];
       let parseMode = null;
 
-      // پاسخ سریع به callback_query (برای جلوگیری از قفل شدن دکمه‌ها)
-      if (body.callback_query?.id) {
-        await fetch(
-          `https://api.telegram.org/bot${this.env.TELEGRAM_BOT_TOKEN}/answerCallbackQuery`,
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ callback_query_id: body.callback_query.id }),
-          }
-        );
-      }
-
 
       // پردازش /start با داده پرداخت
       if (body.message?.text?.startsWith('/start pay_')) {
@@ -196,6 +184,14 @@ const BotNamespace = class {
           body: JSON.stringify(payload),
         }
       );
+      
+      if (body.callback_query?.id) {
+        await fetch(`https://api.telegram.org/bot${this.env.TELEGRAM_BOT_TOKEN}/answerCallbackQuery`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ callback_query_id: body.callback_query.id }),
+        });
+      }
 
       return new Response('OK');
     } catch (error) {
